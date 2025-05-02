@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farid Issahaka Ouedraogo - Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <img src="assets/images/hero-banner.jpg" alt="Farid Ouedraogo" class="hero-avatar" />
+    <h1 class="hero-title">Farid Issahaka Ouedraogo</h1>
+    <p class="hero-text">
+      Bachelor of Computer Engineering, University of Ottawa<br />
+      Passionate about building intelligent systems that combine software, data, and hardware to solve real-world problems.
+    </p>
+    <a href="projects.html" class="btn btn-primary">Explore My Projects</a>
+
+
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="timeline-item">
+      <h4 class="item-title"><img src="assets/images/icons/Bell.png" class="icon">Network Technician - Bell Canada</h4>
+      <span>May 2023 - Present</span>
+      <p>Installed Wi-Fi modems, TV receivers, and fiber cabling for Bell services. Delivered on-site technical support and ensured customer satisfaction.</p>
+    </div>
+    <div class="timeline-item">
+      <h4 class="item-title"><img src="assets/images/icons/uottawa.png" class="icon">Teaching Assistant - University of Ottawa</h4>
+      <span>Jan 2025 - Present</span>
+      <p>Supervised Real-Time Systems lab sessions with STM32 boards. Provided guidance on embedded C/C++ programming and debugging.</p>
+    </div>
+    <div class="timeline-item">
+      <h4 class="item-title"><img src="assets/images/icons/Horinfo.png" class="icon">Software Developer - Horinfo</h4>
+      <span>Jan 2023 - Jan 2024</span>
+      <p>Developed full-stack applications using Node.js, PostgreSQL, and Docker. Worked in Agile environments with Git and Jira. Used cloud services (Azure and AWS) through projects and coursework.</p>
+    </div>
+    <div class="timeline-item">
+      <h4 class="item-title"><img src="assets/images/icons/Horinfo.png" class="icon">Data Analyst - Horinfo</h4>
+      <span>Jun 2022 - Sep 2022</span>
+      <p>Analyzed and visualized datasets using Python (Pandas, NumPy) and Power BI. Supported data-driven decision-making with dashboards and reports.</p>
+    </div>
+  </section>
+  
+  <section id="project-section" class="section" style="display: none;">
+    <h2 class="section-title">My Projects</h2>
+  
+    <div class="project-slider" id="project-slider">
+      <!-- Projects will be injected here by JavaScript -->
+    </div>
+  
+    <div class="pagination">
+      <button onclick="prevProject()">⟵ Previous</button>
+      <span id="project-counter">1 / N</span>
+      <button onclick="nextProject()">Next ⟶</button>
+    </div>
+  </section>
+  
+
+<section class="section">
+  <h2 class="section-title">Diplomas & Certifications</h2>
+  <div class="timeline-item">
+    <h4 class="item-title">Bachelor of Computer Engineering</h4>
+    <span>University of Ottawa - May 2025 (expected)</span>
+  </div>
+  <div class="timeline-item">
+    <h4 class="item-title">Certifications</h4>
+    <ul>
+      <li>Security+</li>
+      <li>Microsoft Azure (in progress)</li>
+      <li>Curam Technical (in progress)</li>
+      <li>Power Platform Fundamentals (in progress)</li>
+    </ul>
+  </div>
+</section>
+
+  <footer class="footer">
+    <p>📧 ofarid81@gmail.com | 📞 819-318-2201 | <a href="https://linkedin.com/in/farid-ouedraogo" target="_blank">LinkedIn</a></p>
+  </footer>
+  <script>
+    const projects = [
+      {
+        title: "AI Recycle Sorter",
+        year: "2023-2024",
+        description: "Smart object-sorting robot using Jetson Nano and OpenCV. Built with React, MongoDB and Python.",
+        image: "assets/images/ai-sorter.jpeg)"
+      },
+      {
+        title: "E-Hotel Booking System",
+        year: "2024",
+        description: "Web-based hotel booking platform with PostgreSQL, PHP and JavaScript.",
+        image: "assets/images/projects/e-hotel.png"
+      },
+      {
+        title: "Service Novigrad App",
+        year: "2022",
+        description: "Android app for local service bookings. Built with Java and Firebase.",
+        image: "assets/images/novigrad.png"
+      },
+      {
+        title: "Real-Time Alarm Subsystem",
+        year: "2024",
+        description: "Embedded alarm system with STM32 and C++ for real-time monitoring.",
+        image: "assets/images/alarm.png"
+      }
+    ];
+  
+    let current = 0;
+  
+    function showProjects() {
+      document.getElementById("project-section").style.display = "block";
+      renderProject();
+    }
+  
+    function renderProject() {
+      const p = projects[current];
+      document.getElementById("project-slider").innerHTML = `
+        <div class="project-card">
+          <img src="${p.image}" class="project-img" alt="${p.title}">
+          <div>
+            <h3>${p.title}</h3>
+            <p><em>${p.year}</em></p>
+            <p>${p.description}</p>
+          </div>
+        </div>
+      `;
+      document.getElementById("project-counter").innerText = (current + 1) + " / " + projects.length;
+    }
+  
+    function nextProject() {
+      if (current < projects.length - 1) {
+        current++;
+        renderProject();
+      }
+    }
+  
+    function prevProject() {
+      if (current > 0) {
+        current--;
+        renderProject();
+      }
+    }
+  </script>
+  
+</body>
+</html>
